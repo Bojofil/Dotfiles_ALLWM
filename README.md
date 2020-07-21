@@ -8,7 +8,7 @@ This repository houses the dotfiles used on my main production machine.  My curr
 - Shell Prompt: oh-my-zsh with powerlevel10k
 - Text editor: code-oss (GUI) / VIM (CLI)
 - File Manager: Thunar / Ranger
-- Compositor: Compton-Tryone
+- Compositor: Picom-Tryone
 - Colorscheming: pywal
 ## Installation
 
