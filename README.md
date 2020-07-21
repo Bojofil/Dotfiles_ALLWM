@@ -4,7 +4,7 @@ This repository houses the dotfiles used on my main production machine.  My curr
 - Distribution: Arch Linux
 - Window Manager: Qtile
 - Shell: zsh
-- Terminal Emulator: st
+- Terminal Emulator: Alacritty
 - Shell Prompt: oh-my-zsh with powerlevel10k
 - Text editor: code-oss (GUI) / VIM (CLI)
 - File Manager: Thunar / Ranger
