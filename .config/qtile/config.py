@@ -339,11 +339,11 @@ def init_widgets_list():
                         background=colors[5],
                         fontsize=14
                         ),        
-                widget.Pacman(
-                       update_interval = 900,
+                widget.CheckUpdates(
+                       update_interval = 900.0,
                        padding = 5,
                        foreground = colors[2],
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syyu')},
+                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')},
                        background = colors[5]
                        ),
                        
