@@ -269,20 +269,13 @@ def init_widgets_list():
                     #    padding=0,
                      #   fontsize=36
                       #  ),
-               #widget.TextBox(
-                #        text="  ",
-                 #       padding = 0,
-                  #      foreground=colors[2],
-                   #     background=colors[4],
-                    #   fontsize=12
-                     #   ),
                #widget.CPU(
                 #        foreground=colors[2],
                  #       background=colors[4],
                   #      padding = 0,
                    #     fontsize=12,
                     #    update_interval = 3,
-                     #   format = '{load_percent} %'
+                     #   format = '  {load_percent} %'
                       # ),
                widget.TextBox(
                         text='',
@@ -292,11 +285,11 @@ def init_widgets_list():
                         fontsize=36
                         ),
                widget.TextBox(
-                        text=" ",
+                        text=" ",
                         padding = 2,
                         foreground=colors[2],
                         background=colors[5],
-                        fontsize=14
+                        fontsize=12
                         ),
                widget.ThermalSensor(
                         foreground=colors[2],
@@ -311,19 +304,12 @@ def init_widgets_list():
                         padding=0,
                         fontsize=36
                         ),
-               widget.TextBox(
-                        text="  ",
-                        foreground=colors[2],
-                        background=colors[4],
-                        padding = 0,
-                        fontsize=14
-                        ),
                widget.Memory(
                         foreground = colors[2],
                         background = colors[4],
                         padding = 5,
                         update_interval = 2,
-                        format = '{MemUsed}M'
+                        format = '  {MemUsed}M'
                         ),
                widget.TextBox(
                         text='',
@@ -331,31 +317,25 @@ def init_widgets_list():
                         foreground = colors[5],
                         padding=0,
                         fontsize=36
-                        ),
-                widget.TextBox(
-                        text=" ",
-                        padding = 5,
-                        foreground=colors[2],
-                        background=colors[5],
-                        fontsize=14
-                        ),        
+                        ),  
                 widget.CheckUpdates(
+                       display_format = '  Updates: {updates}', 
                        update_interval = 900.0,
                        padding = 5,
                        foreground = colors[2],
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')},
-                       background = colors[5]
+                       background = colors[5],
+                       colour_have_updates = colors[2],
+                       colour_no_updates = colors[2],
+                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')}
                        ),
-                       
-        
-            # widget.Net(
+               #  widget.Net(
                 #        interface = "eno2",
                  #       format = ' {down}   {up}',
                   #      foreground = colors[2],
                    #     background = colors[4],
                     #    padding = 5,
                      #   update_interval = 2
-                        #),
+                       # ),
                widget.TextBox(
                         text='',
                         background = colors[5],
@@ -363,13 +343,6 @@ def init_widgets_list():
                         padding=0,
                         fontsize=36
                         ),
-               #widget.CurrentLayoutIcon(
-                        #custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
-                        #foreground = colors[2],
-                        #background = colors[4],
-                        #padding = 0,
-                        #scale=0.7
-                        #),
                widget.CurrentLayout(
                         foreground = colors[2],
                         background = colors[4],
