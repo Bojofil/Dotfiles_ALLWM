@@ -319,7 +319,7 @@ def init_widgets_list():
                         ),
                 widget.TextBox(
                         text = '  Updates:' ,
-                        padding = 5 , 
+                        padding = 3 , 
                         foreground = colors[2] ,
                         background = colors [5] ,
                         mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')} 
@@ -327,8 +327,8 @@ def init_widgets_list():
                 widget.CheckUpdates(
                        display_format = '{updates}',
                        distro = 'Arch_checkupdates', 
-                       update_interval = 3,
-                       padding = 5,
+                       update_interval = 60,
+                       padding = 1,
                        foreground = colors[2],
                        background = colors[5],
                        colour_have_updates = colors[2],
