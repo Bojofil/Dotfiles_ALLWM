@@ -158,9 +158,8 @@ group_names = [("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
-               ("", {'layout': 'max'}),
+               ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
-               ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
@@ -317,10 +316,18 @@ def init_widgets_list():
                         foreground = colors[5],
                         padding=0,
                         fontsize=36
-                        ),  
+                        ),
+                widget.TextBox(
+                        text = '  Updates:' ,
+                        padding = 5 , 
+                        foreground = colors[2] ,
+                        background = colors [5] ,
+                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')} 
+                        ),          
                 widget.CheckUpdates(
-                       display_format = '  Updates: {updates}', 
-                       update_interval = 900.0,
+                       display_format = '{updates}',
+                       distro = 'Arch_checkupdates', 
+                       update_interval = 3,
                        padding = 5,
                        foreground = colors[2],
                        background = colors[5],
@@ -328,7 +335,7 @@ def init_widgets_list():
                        colour_no_updates = colors[2],
                        mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')}
                        ),
-               #  widget.Net(
+            #  widget.Net(
                 #        interface = "eno2",
                  #       format = ' {down}   {up}',
                   #      foreground = colors[2],
@@ -429,9 +436,8 @@ def assign_app_group(client):
      d[""] = [ "Alacritty", "alacritty", ]
      d[""] = ["Thunar", "Ranger", "Nitrogen", "thunar", "ranger", "nitrogen",  ]
      d[""] = ["code-oss", "Code-oss", "Code", "code", ]
-     d[""] = ["net-runelite-client-RuneLite", ]
+     d[""] = ["net-runelite-launcher-Launcher", ]
      d[""] = ["Spotify","spotify", "Discord", "discord", ]
-     d[""] = ["Google-chrome", "google-chrome", ]
      d[""] = ["Thunderbird", "thunderbird", ]
      wm_class = client.window.get_wm_class()[0]
 
@@ -454,4 +460,4 @@ focus_on_window_activation = "urgent"
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/autostart.sh'])
-wmname = "Qtile"
+wmname = "LG3D"
