@@ -1,3 +1,6 @@
+* {
+	font-family:Roboto;
+	}
 :root {
 	--bar-height: 80px;
 }

@@ -20,7 +20,7 @@ mod = "mod4"
 myTerm = "alacritty"                                    
 myConfig = "/home/justin/.config/qtile/config.py"
 PROMPT = "rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3"
-Chromium = "chromium"    
+Browser = "chromium"    
 
 
 keys = [
@@ -51,7 +51,7 @@ keys = [
              ),
         Key(
              [mod, "shift"], "w",
-             lazy.spawn(Chromium),
+             lazy.spawn(Browser),
              desc='Launch Chromium'
              ),
          Key(
@@ -170,7 +170,7 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 layout_theme = {"border_width": 0,
                 "margin": 6,
-                "borer_focus": "#0D1E33",
+                "border_focus": "#0D1E33",
                 "border_normal": "#0D1E33"
                 }
 
@@ -290,12 +290,12 @@ def init_widgets_list():
                         background=colors[5],
                         fontsize=12
                         ),
-               widget.ThermalSensor(
-                        foreground=colors[2],
-                        background=colors[5],
-                        padding = 5,
-                        update_interval = 2
-                        ),
+              # widget.ThermalSensor(
+               #         foreground=colors[2],
+                #        background=colors[5],
+                 #       padding = 5,
+                  #      update_interval = 2
+                  #      ),
                widget.TextBox(
                         text='',
                         background = colors[5],
@@ -303,20 +303,20 @@ def init_widgets_list():
                         padding=0,
                         fontsize=36
                         ),
-               widget.Memory(
-                        foreground = colors[2],
-                        background = colors[4],
-                        padding = 5,
-                        update_interval = 2,
-                        format = '  {MemUsed}M'
-                        ),
-               widget.TextBox(
-                        text='',
-                        background = colors[4],
-                        foreground = colors[5],
-                        padding=0,
-                        fontsize=36
-                        ),
+               #widget.Memory(
+                #        foreground = colors[2],
+                 #       background = colors[4],
+                  #      padding = 5,
+                   #     update_interval = 2,
+                    #    format = '  {MemUsed}M'
+                        #),
+               #widget.TextBox(
+                #        text='',
+                 #       background = colors[4],
+                  #      foreground = colors[5],
+                   #     padding=0,
+                    #    fontsize=36
+                      #  ),
                 widget.TextBox(
                         text = '  Updates:' ,
                         padding = 3 , 
@@ -324,17 +324,17 @@ def init_widgets_list():
                         background = colors [5] ,
                         mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')} 
                         ),          
-                widget.CheckUpdates(
-                       display_format = '{updates}',
-                       distro = 'Arch_checkupdates', 
-                       update_interval = 60,
-                       padding = 1,
-                       foreground = colors[2],
-                       background = colors[5],
-                       colour_have_updates = colors[2],
-                       colour_no_updates = colors[2],
-                       mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')}
-                       ),
+                #widget.CheckUpdates(
+                 #      display_format = '{updates}',
+                  #     distro = 'Arch_checkupdates', 
+                   #    update_interval = 60,
+                    #   padding = 1,
+                     #  foreground = colors[2],
+                      # background = colors[5],
+                       #colour_have_updates = colors[2],
+                    #   colour_no_updates = colors[2],
+                     #  mouse_callbacks = {'Button1': lambda qtile: qtile.cmd_spawn(myTerm + ' -e yay -Syyu')}
+                      # ),
             #  widget.Net(
                 #        interface = "eno2",
                  #       format = ' {down}   {up}',
@@ -350,11 +350,11 @@ def init_widgets_list():
                         padding=0,
                         fontsize=36
                         ),
-               widget.CurrentLayout(
-                        foreground = colors[2],
-                        background = colors[4],
-                        padding = 5
-                        ),
+              # widget.CurrentLayout(
+               #         foreground = colors[2],
+                #        background = colors[4],
+                 #       padding = 5
+                  #      ),
                 widget.TextBox(
                         text='',
                         background = colors[4],
@@ -368,24 +368,24 @@ def init_widgets_list():
                         background=colors[5],
                         padding = 0
                         ),
-               widget.Volume(
-                        foreground = colors[2],
-                        background = colors[5],
-                        padding = 5,
-                        update_interval = 5
-                        ),         
-               widget.TextBox(
-                        text='',
-                        background = colors[5],
-                        foreground = colors[4],
-                        padding=0,
-                        fontsize=36
-                        ),
-               widget.Clock(
-                        foreground = colors[2],
-                        background = colors[4],
-                        format="  %A %B %d, %Y    %l:%M %p "
-                        ),
+               #widget.Volume(
+                #        foreground = colors[2],
+                 #       background = colors[5],
+                  #      padding = 5,
+                   #     update_interval = 5
+                    #    ),         
+               #widget.TextBox(
+                #        text='',
+                 #       background = colors[5],
+                  #      foreground = colors[4],
+                   #     padding=0,
+                    #    fontsize=36
+                     #   ),
+               #widget.Clock(
+                #        foreground = colors[2],
+                 #       background = colors[4],
+                  #      format="  %A %B %d, %Y    %l:%M %p "
+                   #     ),
                widget.Sep(
                         linewidth = 0,
                         padding = 10,
@@ -406,9 +406,9 @@ def init_widgets_screen2():
     return widgets_screen2                       
 
 def init_screens():
-    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.95, size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.95, size=20)),
-            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0.95, size=20))]
+    return [Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0, size=20)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0, size=20)),
+            Screen(top=bar.Bar(widgets=init_widgets_screen1(), opacity=0, size=20))]
 
 if __name__ in ["config", "__main__"]:
     screens = init_screens()
@@ -460,4 +460,4 @@ focus_on_window_activation = "urgent"
 def start_once():
     home = os.path.expanduser('~')
     subprocess.call([home + '/.config/qtile/autostart.sh'])
-wmname = "LG3D"
+wmname = "Qtile"
