@@ -10,9 +10,10 @@ import os
 import re
 import socket
 import subprocess
-from libqtile.config import Key, Screen, Group, Drag, Click, Rule
+from libqtile.config import KeyChord, Key, Screen, Group, Drag, Click, Rule
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
+from libqtile.lazy import lazy
 from typing import List 
 
 
@@ -171,8 +172,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 layout_theme = {"border_width": 0,
                 "margin": 6,
-                "border_focus": "#0D1E33",
-                "border_normal": "#0D1E33"
+                "border_focus": "#2E3440",
+                "border_normal": "#2E3440"
                 }
 
 
@@ -189,32 +190,18 @@ layouts = [
     layout.Max(**layout_theme),
     #layout.Tile(shift_windows=True, **layout_theme),
     #layout.Stack(num_stacks=2),
-    layout.TreeTab(
-         font = "FiraGO Medium",
-         fontsize = 10,
-         sections = ["FIRST", "SECOND"],
-         section_fontsize = 11,
-         bg_color = "#0D1E33",
-         active_bg = "#3473AC",
-         active_fg = "#C6E0E8",
-         inactive_bg = "#0D1E33",
-         inactive_fg = "#8A9CA2",
-         padding_y = 5,
-         section_top = 10,
-         panel_width = 320
-         ),
-     #layout.Floating(**layout_theme)
+    layout.Floating(**layout_theme)
 ]
 
 
-colors = [["#0D1E33", "#0D1E33"], 
-          ["#3473AC", "#3473AC"], 
-          ["#C6E0E8", "#C6E0E8"], 
-          ["#0D1E33", "#0D1E33"], 
-          ["#2A5D8C", "#2A5D8C"], 
-          ["#3473AC", "#3473AC"], 
-          ["#C6E0E8", "#C6E0E8"],
-          ["#5BAFD5", "#5BAFD5"]]
+colors = [["#2E3440", "#2E3440"], 
+          ["#2E3440", "#2E3440"], 
+          ["#2E3440", "#2E3440"], 
+          ["#2E3440", "#2E3440"], 
+          ["#2E3440", "#2E3440"], 
+          ["#2E3440", "#2E3440"], 
+          ["#2E3440", "#2E3440"],
+          ["#2E3440", "#2E3440"]]
 
 
 widget_defaults = dict(
@@ -448,6 +435,33 @@ def assign_app_group(client):
              group = list(d.keys())[i]
              client.togroup(group)
 
+@hook.subscribe.client_new
+def floating_dialogs(window):
+    dialog = window.window.get_wm_type() == 'dialog'
+    transient = window.window.get_wm_transient_for()
+    if dialog or transient:
+        window.floating = True
+
+floating_layout = layout.Floating(**layout_theme,
+    float_rules=[
+        {'wmclass': 'confirm'},
+        {'wmclass': 'dialog'},
+        {'wmclass': 'download'},
+        {'wmclass': 'error'},
+        {'wmclass': 'file_progress'},
+        {'wmclass': 'notification'},
+        {'wmclass': 'splash'},
+        {'wmclass': 'toolbar'},
+        {'wmclass': 'confirmreset'},  # gitk
+        {'wmclass': 'makebranch'},  # gitk
+        {'wmclass': 'maketag'},  # gitk
+        {'wname': 'branchdialog'},  # gitk
+        {'wname': 'pinentry'},  # GPG key password entry
+        {'wmclass': 'ssh-askpass'},  # ssh-askpass
+])
+
+
+
 main = None
 follow_mouse_focus = True
 bring_front_click = False
@@ -455,7 +469,7 @@ cursor_warp = False
 
 
 auto_fullscreen = True
-focus_on_window_activation = "urgent"
+focus_on_window_activation = "smart"
 
 
 @hook.subscribe.startup_once
