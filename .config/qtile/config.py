@@ -160,6 +160,7 @@ group_names = [("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),
+               ("", {'layout': 'monadtall'}),
                ("", {'layout': 'monadtall'}),]
 
 groups = [Group(name, **kwargs) for name, kwargs in group_names]
@@ -438,6 +439,7 @@ def assign_app_group(client):
      d[""] = ["code-oss", "Code-oss", "Code", "code", ]
      d[""] = ["net-runelite-launcher-Launcher", ]
      d[""] = ["Spotify","spotify", "Discord", "discord", ]
+     d[""] = ["google-chrome" , "Google-chrome" ,]
      d[""] = ["Thunderbird", "thunderbird", ]
      wm_class = client.window.get_wm_class()[0]
 

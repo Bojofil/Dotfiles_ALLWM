@@ -1,9 +1,9 @@
 /** Configured For Applets **/
 
 configuration {
-  theme: "~/.cache/wal/colors-rofi-dark.rasi";
+  theme: "nord";
   show-icons:         true;
-  font: "Fira Sans 10";
+  font: "Roboto 10";
   icon-theme:         "Oomox-21";
   location: 5;
   yoffset: -50;
