@@ -9,7 +9,7 @@ This repository houses the dotfiles used on my main production machine.  My curr
 - Text editor: code-oss (GUI) / VIM (CLI)
 - File Manager: Thunar / Ranger
 - Compositor: Picom-Tryone
-- Colorscheming: pywal
+- Colorscheming: Nord
 ## Installation
 
 In order to use these files, simply clone the repository and place the files in their necessary directory.
