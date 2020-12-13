@@ -3,7 +3,7 @@
 configuration {
   theme: "nord";
   show-icons:         true;
-  font: "Roboto 10";
+  font: "Fira Sans 9";
   icon-theme:         "Oomox-21";
   location: 5;
   yoffset: -50;
