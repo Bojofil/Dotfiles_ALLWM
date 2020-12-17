@@ -93,13 +93,13 @@ myEditor = "emacsclient -c -a emacs "  -- Sets emacs as editor for tree select
 -- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor for tree select
 
 myBorderWidth :: Dimension
-myBorderWidth = 0          -- Sets border width for windows
+myBorderWidth = 2          -- Sets border width for windows
 
 myNormColor :: String
-myNormColor   = "#282c34"  -- Border color of normal windows
+myNormColor   = "#5E81AC"  -- Border color of normal windows
 
 myFocusColor :: String
-myFocusColor  = "#46d9ff"  -- Border color of focused windows
+myFocusColor  = "#5E81AC"  -- Border color of focused windows
 
 altMask :: KeyMask
 altMask = mod1Mask         -- Setting this for use in xprompts
@@ -113,7 +113,7 @@ myStartupHook = do
           spawnOnce "picom --experimental-backend &"
           spawnOnce "~/Startup/nvidia.sh &"
           spawnOnce "~/Startup/bootstrap.sh &"
-          setWMName "LG3D"
+          setWMName "Xmonad"
 
 myColorizer :: Window -> Bool -> X (String, String)
 myColorizer = colorRangeFromClassName
@@ -706,7 +706,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| threeCol
                                  ||| threeRow
 
-myWorkspaces = [" \xf268 ", " \xf120 ", " \xf114 ", " \xf0f6 ", " \xf11b ", " \xf025 ", " \xf0f2 ", " \xf16a "]
+myWorkspaces = [" \xf268 ", " \xf120 ", " \xf07b ", " \xf15c ", " \xf11b ", " \xf025 ", " \xf0f2 ", " \xf16a "]
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 "]
 
 xmobarEscape :: String -> String
