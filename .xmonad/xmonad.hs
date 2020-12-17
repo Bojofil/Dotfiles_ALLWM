@@ -113,6 +113,7 @@ myStartupHook = do
           spawnOnce "picom --experimental-backend &"
           spawnOnce "~/Startup/nvidia.sh &"
           spawnOnce "~/Startup/bootstrap.sh &"
+          spawnOnce "exec spotify &"
           setWMName "Xmonad"
 
 myColorizer :: Window -> Bool -> X (String, String)
