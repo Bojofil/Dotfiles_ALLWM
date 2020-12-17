@@ -2,7 +2,7 @@
 
 This repository houses the dotfiles used on my main production machine.  My current build is as follows:
 - Distribution: Arch Linux
-- Window Manager: Qtile
+- Window Manager: Xmonad
 - Shell: zsh
 - Terminal Emulator: Alacritty
 - Shell Prompt: oh-my-zsh with powerlevel10k
