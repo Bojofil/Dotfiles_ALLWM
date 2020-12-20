@@ -114,7 +114,7 @@ myStartupHook = do
           spawnOnce "~/Startup/nvidia.sh &"
           spawnOnce "~/Startup/bootstrap.sh &"
           spawnOnce "exec spotify &"
-          setWMName "XMonad"
+          setWMName "Xmonad"
 
 myColorizer :: Window -> Bool -> X (String, String)
 myColorizer = colorRangeFromClassName
