@@ -1,0 +1,18 @@
+
+xmonad.hs:604:29: error:
+    • Variable not in scope: jXPConfig' :: XPConfig
+    • Perhaps you meant one of these:
+        ‘jXPConfig’ (line 215),
+        data constructor ‘XConfig’ (imported from XMonad)
+    |
+604 |         ++ [("M-p " ++ k, f jXPConfig') | (k,f) <- promptList ]
+    |                             ^^^^^^^^^^
+
+xmonad.hs:605:29: error:
+    • Variable not in scope: jXPConfig' :: XPConfig
+    • Perhaps you meant one of these:
+        ‘jXPConfig’ (line 215),
+        data constructor ‘XConfig’ (imported from XMonad)
+    |
+605 |         ++ [("M-p " ++ k, f jXPConfig' g) | (k,f,g) <- promptList' ]
+    |                             ^^^^^^^^^^
